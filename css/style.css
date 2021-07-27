@@ -1,29 +1,27 @@
 body {
-    background: whitesmoke;
+  background: whitesmoke;
 }
 
-
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 400px;
-    border: 3px solid lightpink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  border: 3px solid lightpink;
+}
 
-  }
+.center2 {
+  line-height: 200px;
 
-  .center2 {
-    line-height: 200px;
-    height: 200px;
-    border: 3px solid lightcoral;
-    text-align: center;
-  }
-  
-  /* If the text has multiple lines, add the following: */
-  .center2 p {
-    line-height: 1.5;
-    display: inline-block;
-    vertical-align: middle;
-  }
-  
-  
+  height: 200px;
+  border: 3px solid lightcoral;
+
+  text-align: center;
+}
+
+/* If the text has multiple lines, add the following: */
+.center2 p {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+}
