@@ -1,10 +1,17 @@
-body {
-  background: whitesmoke;
+:root {
+  --text-color: hsl(0, 31%, 89%);
+  --text-color1: whitesmoke;
+  --box-bg-color: hsl(200, 70%, 30%);
+  --background-color: whitesmoke;
 }
 
-.center-H {
+body {
+  background: var(--background-color);
+}
+
+.center-H1 {
   margin: auto;
-  background-color: hsl(200, 70%, 30%);
+  background-color: hsl(0, 0%, 5%);
   width: 100px;
   height: 100px;
   color: whitesmoke;
@@ -12,4 +19,24 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
+}
+.center-H {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--box-bg-color);
+  width: 100px;
+  height: 100px;
+  color: var(--text-color1);
+  font-size: 1.1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.classic {
+  width: 80px;
+  border-style: solid;
+  border-color: hsl(30, 70%, 21%);
 }
