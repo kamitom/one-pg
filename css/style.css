@@ -1,5 +1,5 @@
 :root {
-  --text-color: hsl(0, 31%, 89%);
+  --text-color2: rgb(5, 83, 30);
   --text-color1: whitesmoke;
   --box-bg-color: hsl(200, 70%, 30%);
   --background-color: whitesmoke;
@@ -9,18 +9,24 @@ body {
   background: var(--background-color);
 }
 
-.center-H1 {
-  margin: auto;
-  background-color: hsl(0, 0%, 5%);
-  width: 100px;
-  height: 100px;
-  color: whitesmoke;
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.center-good {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
+  background-color: var(--box-bg-color);
+  width: 100px;
+  height: 100px;
+  color: var(--text-color1);
 }
-.center-H {
+
+.center-bad {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -36,7 +42,10 @@ body {
 }
 
 .classic {
-  width: 80px;
+  width: 100px;
+  height: 100px;
   border-style: solid;
   border-color: hsl(30, 70%, 21%);
+  border-width: 0.1rem;
+  color: var(--text-color2);
 }

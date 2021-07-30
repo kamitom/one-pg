@@ -3,14 +3,16 @@ const fs = require('fs')
 
 // console.log(fs)
 
-// const file = fs.readFileSync('../README.md')
-// console.log(file)
+// 同步
+const file = fs.readFileSync('./README.md')
+console.log(`同步的data: ${file}`)
 
+// 非同步
 const file1 = fs.readFile('./README.md', (err, data) => {
   if (err) {
     console.log(`here is ${err}`)
   } else {
-    console.log(`data is here: ${data}`) // 二進制直接轉為human readable..
+    console.log(`非同步的data: ${data}`) // 二進制直接轉為human readable..
   }
 })
 
