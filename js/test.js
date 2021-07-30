@@ -19,5 +19,5 @@ const file1 = fs.readFile('./README.md', (err, data) => {
 const arr = []
 for (let i = 2; i <= 99999999; i += 2) {
   arr.push(i)
+  console.log(arr)
 }
-console.log(arr)
