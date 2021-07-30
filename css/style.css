@@ -9,6 +9,20 @@ body {
   background: var(--background-color);
 }
 
+video {
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  grid-template-rows: 50px 100px;
+  place-items: center;
+  border-width: 0.1rem;
+  border-color: red;
+}
+
 .container {
   display: flex;
   justify-content: space-evenly;
@@ -48,4 +62,10 @@ body {
   border-color: hsl(30, 70%, 21%);
   border-width: 0.1rem;
   color: var(--text-color2);
+}
+
+.video-test {
+  display: flex;
+  width: 150px;
+  height: 150px;
 }
