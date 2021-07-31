@@ -5,11 +5,17 @@
   --background-color: whitesmoke;
   --bg-colur: rgb(210, 233, 84);
   --grid-bg-color: hsl(45, 51%, 73%);
+  --alink-color: red;
 }
 
 body {
   background: var(--background-color);
   font-family: "Trirong", serif;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
 }
 
 .grid {
