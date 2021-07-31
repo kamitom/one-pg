@@ -10,6 +10,32 @@ body {
   padding: 0;
 }
 
+img {
+  width: 30%;
+  height: 30%;
+}
+
+header {
+  padding: 1em;
+  background: chocolate;
+  padding-bottom: 3.5em;
+  margin-bottom: 1em;
+  text-align: center;
+  clip-path: polygon(
+    50% 0%,
+    85.67% 42px,
+    91.32% 72.11%,
+    45.05% 96.78%,
+    0px 60%,
+    88px 60px
+  );
+}
+
+main {
+  min-height: 1000px;
+  padding: 2rem;
+}
+
 ul {
   margin: 0;
   padding: 0;
