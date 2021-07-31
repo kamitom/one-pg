@@ -9,7 +9,7 @@
 
 body {
   background: var(--background-color);
-  font-weight: bold;
+  font-family: "Trirong", serif;
 }
 
 .grid {
