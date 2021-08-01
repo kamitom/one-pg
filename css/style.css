@@ -18,22 +18,6 @@ a {
   text-decoration: none;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 200px 2fr;
-  grid-template-rows: 80px 100px 350px;
-  place-items: center;
-  border-width: 0.1rem;
-  border-style: solid;
-}
-
-.grid li {
-  background-color: var(--grid-bg-color);
-  color: var(--text-color2);
-  height: 60px;
-  width: 70px;
-}
-
 .container {
   margin: 2px;
   display: flex;

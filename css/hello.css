@@ -1,0 +1,53 @@
+:root {
+  --background: hsl(298, 43%, 61%);
+  --box-color: hsl(50, 100%, 97%);
+}
+
+body {
+  background: var(--box-color);
+  font-family: "Trirong", serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.box {
+  margin: 0.3rem;
+  width: 200px;
+  height: 200px;
+  border-style: double;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+}
+
+.divtest1 {
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  left: 10%;
+  background-color: #daa520;
+}
+
+.divtest2 {
+  position: absolute;
+  z-index: 3;
+  top: 15%;
+  left: 15%;
+  background-color: hsl(298, 43%, 61%);
+}
+.divtest3 {
+  position: absolute;
+  z-index: 2;
+  top: 20%;
+  left: 20%;
+  background-color: yellowgreen;
+}
