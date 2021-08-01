@@ -1,0 +1,38 @@
+:root {
+  --background: hsl(298, 43%, 61%);
+  --box-color: hsl(50, 100%, 97%);
+}
+
+body {
+  background: var(--box-color);
+  font-family: "Trirong", serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.box {
+  margin: 0.3rem;
+  width: 200px;
+  height: 200px;
+  border-style: double;
+
+  display: inline-block;
+}
+
+.shin-osaka {
+  background-color: var(--background);
+}
+.shinkansan {
+  position: absolute;
+  left: 2rem;
+  top: 3rem;
+  background-color: hsla(80, 100%, 57%, 1);
+}
+.sapporo {
+  background-color: hsla(31, 100%, 71%, 1);
+}
