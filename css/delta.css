@@ -28,9 +28,9 @@ a {
   background-color: var(--background);
 }
 .shinkansan {
-  position: absolute;
+  /* position: absolute;
   left: 2rem;
-  top: 3rem;
+  top: 3rem; */
   background-color: hsla(80, 100%, 57%, 1);
 }
 .sapporo {

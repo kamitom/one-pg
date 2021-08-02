@@ -42,9 +42,15 @@ a {
   color: var(--text-color1);
 }
 
-.classic {
-  width: 100px;
-  height: 100px;
+.calc {
+  width: 30px;
+}
+
+.classic-box {
+  /* display: inline-block; */
+  margin: 1rem;
+  width: 150px;
+  height: 200px;
   border-style: solid;
   border-color: hsl(30, 70%, 21%);
   border-width: 0.1rem;
