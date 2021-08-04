@@ -21,6 +21,8 @@
   "homepage": "https://github.com/kamitom/one-pg#readme",
   "devDependencies": {
     "standard": "^16.0.3"
+  },
+  "dependencies": {
+    "faker": "^5.5.3"
   }
-  
 }
