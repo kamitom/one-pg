@@ -1,0 +1,58 @@
+:root {
+  --text-color2: rgb(5, 83, 30);
+  --text-color1: whitesmoke;
+  --box-bg-color: hsl(200, 70%, 30%);
+  --background-color: whitesmoke;
+  --bg-colur: rgb(210, 233, 84);
+  --grid-bg-color: hsl(45, 51%, 73%);
+  --alink-color: red;
+}
+
+body {
+  background: var(--background-color);
+  font-family: "Trirong", serif;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.container {
+  margin: 2px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.top {
+  background-color: var(--bg-colur);
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.center-good {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  background-color: var(--box-bg-color);
+  width: 100px;
+  height: 100px;
+  color: var(--text-color1);
+}
+
+.calc {
+  width: 30px;
+}
+
+.classic-box {
+  /* display: inline-block; */
+  margin: 1rem;
+  width: 150px;
+  height: 200px;
+  border-style: solid;
+  border-color: hsl(30, 70%, 21%);
+  border-width: 0.1rem;
+  color: var(--text-color2);
+}

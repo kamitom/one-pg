@@ -23,3 +23,6 @@ for (let i = 2; i <= 9999; i += 2) {
 }
 // console.log(`迴圈 result: \n\n ${arr}`)
 console.log(arr)
+
+const test1 = '10'
+const test2 = 'test2'
