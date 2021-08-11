@@ -1,5 +1,5 @@
 const getLocationTemperature = async (locationName) => {
-  const weatherStackApiKey = 'fakeAPIkey'
+  const weatherStackApiKey = 'fakeAPIKey'
   try {
     const WeatherAPIUrl2 = `http://api.weatherstack.com/current?access_key=${weatherStackApiKey}&query=` + locationName
 
