@@ -2,13 +2,13 @@
   "name": "one-pg",
   "version": "1.0.0",
   "description": "",
-  "main": "index.cjs",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test2": "standard && node js/test.js",
     "prod": "node .",
-    "dev": "nodemon ./index.cjs"
+    "dev": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",
