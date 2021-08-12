@@ -17,8 +17,8 @@ const getLocationTemperature = async (locationName) => {
 // openweathermap solution
 const getOpenWeatherMapAPI = async (openLocation) => {
   console.log('OpenWeatherData processing...')
-  const openApiKey = 'fakeAPI'
-  const openUrl = `http://api.openweathermap.org/data/2.5/weather?q=${openLocation}&appid=${openApiKey}`
+  const openApiKey = 'fakerAPI'
+  const openUrl = `https://api.openweathermap.org/data/2.5/weather?q=${openLocation}&units=metric&appid=${openApiKey}`
 
   try {
     const rq = await fetch(openUrl)

@@ -23,8 +23,7 @@ document.getElementById('idbtn1').addEventListener('click', async () => {
       const finalData = `Location: ${openWeatherData.name}, Temperature(fahrenheit): ${openWeatherData.main.temp}, Description: ${openWeatherData.weather[0].description}`
       document.getElementById('idlbl1').innerText = finalData
       console.log('OpenWeatherData finished...')
-    }
-    else if (openWeatherData.cod === '404') {
+    } else if (openWeatherData.cod === '404') {
       console.log('404 not found: ', openWeatherData)
       console.log(openWeatherData.message)
       document.getElementById('idlbl1').innerText = openWeatherData.message
