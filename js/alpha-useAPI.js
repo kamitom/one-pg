@@ -1,7 +1,7 @@
-import * as queryWeather from './alpha-definitionAPI.js'
+import * as queryWeather from './utils/alpha-definitionAPI.js'
 
 document.getElementById('idbtn1').addEventListener('click', async () => {
-  const weatherLocation = document.getElementById('idlocation1').value
+  const weatherLocation = document.getElementById('idlocation1').value.trim()
 
   try {
     await useOpenSolution(weatherLocation)
@@ -14,6 +14,7 @@ document.getElementById('idbtn1').addEventListener('click', async () => {
 
 const useOpenSolution = async (targetLocation) => {
   const openWeatherData = await queryWeather.openWeatherMapAPI(targetLocation)
+
   if (openWeatherData.cod === 401) {
     console.log('Fetch API fail...')
     console.log(openWeatherData.message)
@@ -24,6 +25,9 @@ const useOpenSolution = async (targetLocation) => {
     console.log('OpenWeatherData finished...')
   } else if (openWeatherData.cod === '404') {
     console.log('404 not found: ', openWeatherData)
+    console.log(openWeatherData.message)
+    document.getElementById('idlbl1').innerText = openWeatherData.message
+  } else if (openWeatherData.cod === '400') {
     console.log(openWeatherData.message)
     document.getElementById('idlbl1').innerText = openWeatherData.message
   }
