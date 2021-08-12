@@ -1,8 +1,9 @@
 // weatherstack solution
 const getLocationTemperature = async (locationName) => {
   const weatherStackApiKey = 'fakeAPIKey'
+  const securityLocation = encodeURIComponent(locationName)
   try {
-    const WeatherAPIUrl2 = `http://api.weatherstack.com/current?access_key=${weatherStackApiKey}&query=` + locationName
+    const WeatherAPIUrl2 = `http://api.weatherstack.com/current?access_key=${weatherStackApiKey}&query=` + securityLocation
 
     const request = await fetch(WeatherAPIUrl2)
     const data = await request.json()
@@ -17,8 +18,9 @@ const getLocationTemperature = async (locationName) => {
 // openweathermap solution
 const getOpenWeatherMapAPI = async (openLocation) => {
   console.log('OpenWeatherData processing...')
-  const openApiKey = 'fakeAPIKey'
-  const openUrl = `https://api.openweathermap.org/data/2.5/weather?q=${openLocation}&units=metric&appid=${openApiKey}`
+  const securityOpenLocation = encodeURIComponent(openLocation)
+  const openApiKey = 'fakerAPIKey'
+  const openUrl = `https://api.openweathermap.org/data/2.5/weather?q=${securityOpenLocation}&units=metric&appid=${openApiKey}`
 
   try {
     const rq = await fetch(openUrl)
