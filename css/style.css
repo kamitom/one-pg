@@ -28,3 +28,13 @@ a {
   display: flex;
   justify-content: center;
 }
+
+#divBeta {
+  animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+  50% {
+    opacity: 0;
+  }
+}
