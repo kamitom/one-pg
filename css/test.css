@@ -1,0 +1,54 @@
+body {
+  font-family: "Trirong", serif;
+  margin: 0;
+}
+
+a {
+  /* color: rgb(178, 177, 185); */
+  color: currentColor;
+  text-decoration: none;
+}
+
+.aDiv {
+  position: relative;
+  top: 100px;
+  left: 40px;
+  cursor: help;
+  font-size: 100%;
+  transition: all 0.2s;
+}
+
+.beginDiv {
+  background-color: rgb(158, 157, 137);
+  font-size: 3rem;
+}
+
+.container {
+  background-color: rgb(166, 133, 226);
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: inline-block;
+}
+
+.top-container {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: rgb(36, 161, 156);
+}
+
+.middle-container {
+  background-color: rgb(255, 199, 199);
+}
+
+.bottom-container {
+  position: relative;
+  background-color: rgb(255, 95, 64);
+  left: 100px;
+}
+
+.divsize {
+  height: 100px;
+  width: 100px;
+}

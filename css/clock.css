@@ -1,0 +1,52 @@
+body {
+  /* background: black; */
+  background: darkolivegreen;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+  cursor: help;
+}
+
+h1 {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #17d4fe;
+  font-size: 20px;
+  font-family: Orbitron;
+  letter-spacing: 7px;
+}
+
+.ipinfo {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #17d4fe;
+  font-size: 40px;
+  font-family: Orbitron;
+}
+
+.list {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #17d4fe;
+  font-size: 20px;
+  font-family: Orbitron;
+}
+
+.clock {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: #17d4fe;
+  font-size: 60px;
+  font-family: Orbitron;
+  letter-spacing: 7px;
+}

@@ -19,7 +19,7 @@ const getLocationTemperature = async (locationName) => {
 const getOpenWeatherMapAPI = async (openLocation) => {
   console.log('OpenWeatherData processing...')
   const securityOpenLocation = encodeURIComponent(openLocation)
-  const openApiKey = 'fakeAPIkey'
+  const openApiKey = 'fakerAPIKEY'
   const openUrl = `https://api.openweathermap.org/data/2.5/weather?q=${securityOpenLocation}&units=metric&appid=${openApiKey}`
 
   try {

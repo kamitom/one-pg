@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="this CADDY-SRV clock。" />
+    <title>for Caddy-Test</title>
+
+    <link rel="stylesheet" href="css/clock.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+      //**
+
+      function getLocalIP() {
+        return new Promise(function (resolve, reject) {
+          // NOTE: window.RTCPeerConnection is "not a constructor" in FF22/23
+          var RTCPeerConnection =
+            /*window.RTCPeerConnection ||*/ window.webkitRTCPeerConnection ||
+            window.mozRTCPeerConnection;
+
+          if (!RTCPeerConnection) {
+            reject("Your browser does not support this API");
+          }
+
+          var rtc = new RTCPeerConnection({ iceServers: [] });
+          var addrs = {};
+          addrs["0.0.0.0"] = false;
+
+          function grepSDP(sdp) {
+            var hosts = [];
+            var finalIP = "";
+            sdp.split("\r\n").forEach(function (line) {
+              // c.f. http://tools.ietf.org/html/rfc4566#page-39
+              if (~line.indexOf("a=candidate")) {
+                // http://tools.ietf.org/html/rfc4566#section-5.13
+                var parts = line.split(" "), // http://tools.ietf.org/html/rfc5245#section-15.1
+                  addr = parts[4],
+                  type = parts[7];
+                if (type === "host") {
+                  finalIP = addr;
+                }
+              } else if (~line.indexOf("c=")) {
+                // http://tools.ietf.org/html/rfc4566#section-5.7
+                var parts = line.split(" "),
+                  addr = parts[2];
+                finalIP = addr;
+              }
+            });
+            return finalIP;
+          }
+
+          if (1 || window.mozRTCPeerConnection) {
+            // FF [and now Chrome!] needs a channel/stream to proceed
+            rtc.createDataChannel("", { reliable: false });
+          }
+
+          rtc.onicecandidate = function (evt) {
+            // convert the candidate to SDP so we can run it through our general parser
+            // see https://twitter.com/lancestout/status/525796175425720320 for details
+            if (evt.candidate) {
+              var addr = grepSDP("a=" + evt.candidate.candidate);
+              resolve(addr);
+            }
+          };
+          rtc.createOffer(
+            function (offerDesc) {
+              rtc.setLocalDescription(offerDesc);
+            },
+            function (e) {
+              console.warn("offer failed", e);
+            }
+          );
+        });
+      }
+
+      //**
+
+      /* Add "https://api.ipify.org?format=json" statement
+        this will communicate with the ipify servers in
+        order to retrieve the IP address $.getJSON will
+        load JSON-encoded data from the server using a
+        GET HTTP request */
+
+      $.getJSON("https://api.ipify.org?format=json", function (data) {
+        // Setting text of element P with id gfg
+        $("#gfg").html(data.ip);
+      });
+
+      // NOTE: window.RTCPeerConnection is "not a constructor" in FF22/23
+      var RTCPeerConnection =
+        /*window.RTCPeerConnection ||*/ window.webkitRTCPeerConnection ||
+        window.mozRTCPeerConnection;
+
+      if (RTCPeerConnection)
+        (function () {
+          var rtc = new RTCPeerConnection({ iceServers: [] });
+          if (1 || window.mozRTCPeerConnection) {
+            // FF [and now Chrome!] needs a channel/stream to proceed
+            rtc.createDataChannel("", { reliable: false });
+          }
+
+          rtc.onicecandidate = function (evt) {
+            // convert the candidate to SDP so we can run it through our general parser
+            // see https://twitter.com/lancestout/status/525796175425720320 for details
+            if (evt.candidate) grepSDP("a=" + evt.candidate.candidate);
+          };
+          rtc.createOffer(
+            function (offerDesc) {
+              grepSDP(offerDesc.sdp);
+              rtc.setLocalDescription(offerDesc);
+            },
+            function (e) {
+              console.warn("offer failed", e);
+            }
+          );
+
+          var addrs = Object.create(null);
+          addrs["0.0.0.0"] = false;
+          function updateDisplay(newAddr) {
+            if (newAddr in addrs) return;
+            else addrs[newAddr] = true;
+            var displayAddrs = Object.keys(addrs).filter(function (k) {
+              return addrs[k];
+            });
+            document.getElementById("list").textContent =
+              displayAddrs.join(" or perhaps ") || "n/a";
+          }
+
+          function grepSDP(sdp) {
+            var hosts = [];
+            sdp.split("\r\n").forEach(function (line) {
+              // c.f. http://tools.ietf.org/html/rfc4566#page-39
+              if (~line.indexOf("a=candidate")) {
+                // http://tools.ietf.org/html/rfc4566#section-5.13
+                var parts = line.split(" "), // http://tools.ietf.org/html/rfc5245#section-15.1
+                  addr = parts[4],
+                  type = parts[7];
+                if (type === "host") updateDisplay(addr);
+              } else if (~line.indexOf("c=")) {
+                // http://tools.ietf.org/html/rfc4566#section-5.7
+                var parts = line.split(" "),
+                  addr = parts[2];
+                updateDisplay(addr);
+              }
+            });
+          }
+        })();
+      else {
+        document.getElementById("list").innerHTML =
+          '<code>ifconfig | grep inet | grep -v inet6 | cut -d" " -f2 | tail -n1</code>';
+        document.getElementById("list").nextSibling.textContent =
+          "In Chrome and Firefox your IP should display automatically, by the power of WebRTCskull.";
+      }
+
+      getLocalIP().then((ipAddr) => {
+        // document.getElementById('list2').innerHTML = ipAddr;
+        console.log(`local IP addr: ${ipAddr}`); // 192.168.0.122
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>
+        <a href="index.html">Halo Caddy-Test-v2, we are weak.</a>
+      </h1>
+    </div>
+    <div id="gfg" class="ipinfo"></div>
+    <div id="list" class="list"></div>
+    <div id="list2" class="list2"></div>
+    <div id="MyClockDisplay" class="clock"></div>
+
+    <script src="js/clock.js"></script>
+  </body>
+</html>

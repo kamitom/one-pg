@@ -28,6 +28,10 @@ li {
   list-style: none;
 }
 
+span {
+  display: block;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -37,10 +41,10 @@ li {
 }
 
 .nav-logo {
-  font-size: 20px;
-  font-weight: 500;
   color: white;
   cursor: wait;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .nav-menu {
@@ -97,8 +101,8 @@ li {
     left: -100%;
     top: 5rem;
     flex-direction: column;
-    /* background-color: #3d3d3d; */
-    background-color: hsla(298, 43%, 60%, 1);
+    background-color: #3d3d3d;
+    /* background-color: hsla(298, 43%, 60%, 1); */
     width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
