@@ -1,0 +1,15 @@
+#TestDIV1 {
+  /* display: inline-block; */
+  float: left;
+  width: 200px;
+  height: 50px;
+  border: 2px #ccc solid;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+#TestDIV2 {
+  /* clear: left; */
+  width: 100%;
+  height: 30px;
+  border: 4px orange solid;
+}
